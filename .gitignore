@@ -12,6 +12,8 @@ CHANGELOG.md
 backend/CHANGELOG.md
 
 task_tracker.md
+project_analysis.md
+
 # Environment files
 .env
 backend/.env
