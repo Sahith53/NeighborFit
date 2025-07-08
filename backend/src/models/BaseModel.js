@@ -84,7 +84,12 @@ class BaseModel {
         if (!result.success) {
             throw new Error(`Failed to update ${this.tableName}: ${result.error}`);
         }
-        
+
+        // Handle case where update succeeds but doesn't return data
+        if (!result.data || result.data.length === 0) {
+            // Fetch the updated record separately
+            return await this.findById(id);
+        }
         return result.data[0];
     }
 

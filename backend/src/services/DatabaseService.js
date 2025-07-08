@@ -84,6 +84,7 @@ class DatabaseService {
                 case 'update':
                     query = query.update(options.data);
                     if (options.where) query = query.match(options.where);
+                    query = query.select();
                     break;
 
                 case 'delete':

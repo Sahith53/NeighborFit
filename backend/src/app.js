@@ -31,8 +31,10 @@ class App {
     
       // Initialize all API routes
       initializeRoutes() {
-        // Health check endpoint - useful for deployment monitoring
-        this.app.get('/health', (req, res) => {
+        const authRoutes = require('./routes/authRoutes');
+        const userRoutes = require('./routes/userRoutes');
+          // Health check endpoint - useful for deployment monitoring
+          this.app.get('/health', (req, res) => {
           res.status(200).json({
             status: 'healthy',
             timestamp: new Date().toISOString(),
@@ -41,6 +43,8 @@ class App {
         });
     
         // API routes will be added here
+        this.app.use(`${this.apiVersion}`, authRoutes);
+        this.app.use(`${this.apiVersion}`, userRoutes);
         // this.app.use(`${this.apiVersion}/users`, userRoutes);
         // this.app.use(`${this.apiVersion}/neighborhoods`, neighborhoodRoutes);
     
