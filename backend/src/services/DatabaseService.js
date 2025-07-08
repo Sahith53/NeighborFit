@@ -78,7 +78,7 @@ class DatabaseService {
                     break;
 
                 case 'insert':
-                    query = query.insert(options.data);
+                    query = query.insert(options.data).select();
                     break;
 
                 case 'update':
