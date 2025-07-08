@@ -1,0 +1,27 @@
+# Ignore local development files
+*.log
+*.env
+.env.*
+node_modules/
+.vscode/
+.idea/
+.DS_Store
+
+# Ignore build output (already specified in dist)
+dist/
+build/
+
+# Ignore backend source files (handled separately)
+backend/
+
+# Ignore git metadata
+.git
+.gitignore
+
+# Ignore test coverage
+coverage/
+tests/
+
+# Ignore changelog and cursor-specific files if needed
+CHANGELOG.md
+cursor-prompt.md
